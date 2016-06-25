@@ -1,7 +1,7 @@
 # Armbian Task Management #
 
 ## Overview ##
-TLDR; Keep task discussions in the forum.
+TLDR; Keep task discussions in the forum. GitHub Issues are just for task metadata.
 
 Tasks associated with code will have an issue created in GitHub, but **all dialog regarding task will reside on the forum** in a thread containing the github Issue ID of the task.
 
