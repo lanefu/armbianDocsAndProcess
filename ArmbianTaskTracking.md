@@ -1,4 +1,4 @@
-# Armbian Issue Management #
+# Armbian Task Management #
 
 ## Overview ##
 TLDR; Keep task discussions in the forum.
