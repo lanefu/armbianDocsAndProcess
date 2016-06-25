@@ -2,7 +2,7 @@
 
 ## Overview ##
 
-Tasks associated with code will have an issue created in GitHub, but all dialog regarding task will reside on the forum in a thread containing the github Issue ID of the task.
+Tasks associated with code will have an issue created in GitHub, but *all dialog regarding task will reside on the forum* in a thread containing the github Issue ID of the task.
 
 ## Task Creation Procedure ##
 
@@ -22,11 +22,27 @@ Please keep all discussion for this issue on the forum thread available below:
 
 ## GitHub Issues ##
 
+GitHub Issues provide an easy method to track and filter tasks by using tags and milestones.  Issues also make it easy to easily associate commits and merge requests with a task.  
+
 ### Labels ###
 
-#### Bug ####
+Use labels identify the purpose of a task.
+
+#### bug ####
+
+`bug` is used to tag tasks that address Armbian-level bugs
+
+#### not-our-bug ####
+
+`not-our-bug` is used to identify tasks that are bugs in upstream code.  They are not Armbian bugs, but may impact Armbian.
+
+#### enhancement ####
+
+`enhancement` is used to identify tasks that are new features for Armbian.
 
 ### Milestones ###
+
+Use milestones to divide tasks into claimed and unclaimed work.
 
 #### Claimed ####
 
