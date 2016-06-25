@@ -56,6 +56,8 @@ Tasks which need an owner should be assigned to the `unclaimed tasks` milestone.
 
 ## Forum Tasks ##
 
+### Converting a thread to a task ###
+
 Sometimes support discussions can become tasks.   A forum admin can assist in moving the thread to Tasks forum group.  A cooresponding issue will need to be created.
 
 ## Future Process Improvements ##
