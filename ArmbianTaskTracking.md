@@ -1,8 +1,10 @@
 # Armbian Issue Management #
 
 ## Overview ##
+TLDR; Keep task discussions in the forum.
 
-Tasks associated with code will have an issue created in GitHub, but *all dialog regarding task will reside on the forum* in a thread containing the github Issue ID of the task.
+Tasks associated with code will have an issue created in GitHub, but **all dialog regarding task will reside on the forum** in a thread containing the github Issue ID of the task.
+
 
 ## Task Creation Procedure ##
 
@@ -46,8 +48,20 @@ Use milestones to divide tasks into claimed and unclaimed work.
 
 #### Claimed ####
 
-Tasks which have an owner can be filed under the _Claimed Task_ milestone
+Tasks which have an owner can be filed under the `claimed tasks` milestone
 
 #### Unclaimed ####
 
-Tasks which need an owner should be assigned to the _Unclaimed Task_ milestone.
+Tasks which need an owner should be assigned to the `unclaimed tasks` milestone.
+
+## Forum Tasks ##
+
+Sometimes support discussions can become tasks.   A forum admin can assist in moving the thread to Tasks forum group.  A cooresponding issue will need to be created.
+
+## Future Process Improvements ##
+
+Enhancements desired for this process \(This should be a task!\)
+
+### Issue Hook ###
+
+Ideally we can have a forum thread created upon issue creation.  This will same some time.
