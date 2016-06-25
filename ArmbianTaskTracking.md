@@ -30,29 +30,17 @@ GitHub Issues provide an easy method to track and filter tasks by using tags and
 
 Use labels identify the purpose of a task.
 
-#### bug ####
 
-`bug` is used to tag tasks that address Armbian-level bugs
-
-#### not-our-bug ####
-
-`not-our-bug` is used to identify tasks that are bugs in upstream code.  They are not Armbian bugs, but may impact Armbian.
-
-#### enhancement ####
-
-`enhancement` is used to identify tasks that are new features for Armbian.
+* `bug` is used to tag tasks that address Armbian-level bugs
+* `not-our-bug` is used to identify tasks that are bugs in upstream code.  They are not Armbian bugs, but may impact Armbian.
+* `enhancement` is used to identify tasks that are new features for Armbian.
 
 ### Milestones ###
 
 Use milestones to divide tasks into claimed and unclaimed work.
 
-#### Claimed ####
-
-Tasks which have an owner can be filed under the `claimed tasks` milestone
-
-#### Unclaimed ####
-
-Tasks which need an owner should be assigned to the `unclaimed tasks` milestone.
+* `claimed tasks` milestone contains tasks which have been assigned.
+* `unclaimed tasks` milestone contains tasks that need an owner.
 
 ## Forum Tasks ##
 
