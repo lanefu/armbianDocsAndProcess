@@ -22,9 +22,9 @@ Please keep all discussion for this issue on the forum thread available below:
 
 ```
 
-## GitHub Issues ##
+## Task tracking with GitHub Issues ##
 
-GitHub Issues provide an easy method to track and filter tasks by using tags and milestones.  Issues also make it easy to easily associate commits and merge requests with a task.  
+GitHub Issues provide an easy method to track and filter tasks by using tags and milestones.  Issues also make it easy to easily associate commits and merge requests with a task.  Effectively we just use GitHub issues for the metadata for reporting.
 
 ### Labels ###
 
@@ -41,6 +41,7 @@ Use milestones to divide tasks into claimed and unclaimed work.
 
 * `claimed tasks` milestone contains tasks which have been assigned.
 * `unclaimed tasks` milestone contains tasks that need an owner.
+
 
 ## Forum Tasks ##
 
