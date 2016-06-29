@@ -71,7 +71,7 @@ def generateSite(parsedFileList):
 
 site_name: Armbian Documentation
 
-repo_url: https://git.royall.com/srt/Documentation.git
+repo_url: https://github.com/lanefu/armbianDocsAndProcess
 repo_name: Github
 
 site_author: "Armbian team"
