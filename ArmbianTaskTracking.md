@@ -3,20 +3,28 @@
 ## Overview ##
 TLDR; Keep task discussions in the forum. GitHub Issues are just for task metadata.
 
-Tasks associated with code will have an issue created in GitHub, but **all dialog regarding task will reside on the forum** in a thread containing the github Issue ID of the task.
+Tasks associated with code will have an issue created in GitHub, but **all dialog regarding task will reside on the forum** in a topic containing the github Issue ID of the task.
+
+### What is a task? ###
+
+A task is something actionable that results in some sort of tangible output. ex: code, documentation, QA findings.
+
+Example sources of tasks include: feature requests, bugs, QA, general following of development roadmap.
+
+Not all support issues are tasks, but a support issue can generate a task.
 
 
 ## Task Creation Procedure ##
 
 1. Create issue in [Armbian GitHub Repo](https://github.com/igorpecovnik/lib/issues) under appropriate milestone
 1. Copy the numeric ID of issue created
-1. Create new thread under the Tasks Topic on the [Armbian Forums](http://forum.armbian.com/index.php/forum/14-tasks/)
+1. Create new topic under the Tasks subforum on the [Armbian Forums](http://forum.armbian.com/index.php/forum/15-tasks/)
     - Use the the naming convention of `[ISSUE_ID] - Issue Name`
-1. Copy the URL of task forum thread just created
+1. Copy the URL of task subforum topic just created
 1. Create comment on GitHub Issue with the following Content:
 
 ```
-Please keep all discussion for this issue on the forum thread available below:
+Please keep all discussion for this issue on the forum topic available below:
 
 [URL](URL)
 
@@ -45,9 +53,9 @@ Use milestones to divide tasks into claimed and unclaimed work.
 
 ## Forum Tasks ##
 
-### Converting a thread to a task ###
+### Converting a topic to a task ###
 
-Sometimes support discussions can become tasks.   A forum admin can assist in moving the thread to Tasks forum group.  A cooresponding issue will need to be created.
+Sometimes support discussions can become tasks.   A forum admin can assist in moving the topic to Tasks forum group.  A cooresponding issue will need to be created.
 
 ## Future Process Improvements ##
 
@@ -55,4 +63,4 @@ Enhancements desired for this process \(This should be a task!\)
 
 ### Issue Hook ###
 
-Ideally we can have a forum thread created upon issue creation.  This will same some time.
+Ideally we can have a forum topic created upon issue creation.  This will save some time.
