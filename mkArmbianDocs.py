@@ -50,7 +50,7 @@ def parseFiles(validFileList, indir):
 
     parsedFileList = dict()
     tocTree = defaultdict(set)
-    tocRegex = re.compile("(?P<parent>(?<=\[)[\w-]+?(?=\]))\]-{1}(?P<child>[\w-].*(?=\.md))")
+    tocRegex = re.compile('(?P<parent>(?<=\[)[\w-]+?(?=\]))\]-{1}(?P<child>[\w-].*(?=\.md))')
 ##FIXME add Try catch or finaly
     for file in sorted(validFileList):
         filepath = os.path.join(indir,file)
@@ -59,6 +59,7 @@ def parseFiles(validFileList, indir):
             tocParent = tocResult.group('parent')
             tocChild = tocResult.group('child')
             tocTree.append(tocParent, tocChild, file)
+            log.info(tocTree.items())
     return tocTree
 
 #generte  mkdocs.yml using jinja template and dict of markdown files
