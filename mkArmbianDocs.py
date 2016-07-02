@@ -17,10 +17,10 @@ from jinja2 import Template, BaseLoader, Environment
 def parse_arguments():
     """ Arguments parsing function. """
     import argparse
-    parser = argparse.ArgumentParser(description='mkKnowledge script.')
+    parser = argparse.ArgumentParser(description='generate mkdocs.yml based on file naming covention: [ParentCategory]-Subtopic.md')
     parser.add_argument('-v', '--verbose', action='store_true', help='increase output verbosity')
-    parser.add_argument('-i', '--indir', metavar='INPUT_DIRECTORY', default='./', help='directory containing knowledgebase files')
-    parser.add_argument('-o', '--outdir', metavar='OUTPUT_DIRECTORY', default='./', help='directory to store site.xml')
+    parser.add_argument('-i', '--indir', metavar='INPUT_DIRECTORY', default='./docs', help='directory containing markdown files [default: ./docs]')
+    parser.add_argument('-o', '--outdir', metavar='OUTPUT_DIRECTORY', default='./', help='directory to store mkdocs.yml [default: ./]')
 
     return parser.parse_args()
 
@@ -57,8 +57,10 @@ def parseFiles(validFileList, indir):
         log.info("trying to match %s ", file )
         tocResult = tocRegex.search(file)
         if tocResult:
-            tocParent = tocResult.group('parent')
-            tocChild = tocResult.group('child')
+            #convert hypens to space for Parent topic name
+            tocParent = tocResult.group('parent').replace("-", " ", 3)
+            #convert hypens to space for Child topic name
+            tocChild = tocResult.group('child').replace("-", " ", 3)
             tocPair = (tocChild, file)
             tocTree[tocParent].add(tocPair)
             log.info("added %s %s %s", tocParent, tocChild, file)
@@ -88,14 +90,14 @@ markdown_extensions:
 
 pages:
   - Home: index.md
-{% for tocParent in kbdict.keys() %}  - '{{ tocParent }}' :
-    {% for title, file in dict.fromkeys(kbdict[tocParent]) %}    - '{{ title }}' : '{{ file }}'
+{% for tocParent in tocDict.keys() %}  - '{{ tocParent }}' :
+    {% for title, file in dict.fromkeys(tocDict[tocParent]) %}    - '{{ title }}' : '{{ file }}'
     {% endfor %}
 {% endfor %}
 
 """
     template = Template(mkdocsTemplate)
-    return template.render(kbdict=parsedFileList)
+    return template.render(tocDict=parsedFileList)
 
 def writeSiteFile(content,outdir):
     assert os.path.isdir(outdir), "Provided output directory path is not a directory"
