@@ -59,9 +59,10 @@ def parseFiles(validFileList, indir):
         if tocResult:
             tocParent = tocResult.group('parent')
             tocChild = tocResult.group('child')
+            tocPair = (tocChild, file)
             tocTree.default_factory
-            tocTree.append(tocParent, tocChild, file)
-            log.info(tocTree.items())
+            tocTree[tocParent].add(tocPair)
+            log.info("added %s %s %s", tocParent, tocChild, file)
     return tocTree
 
 #generte  mkdocs.yml using jinja template and dict of markdown files
