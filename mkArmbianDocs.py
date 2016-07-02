@@ -7,6 +7,7 @@
 import sys,os
 import fnmatch
 import re
+from collections import defaultdict
 import logging as log
 import jinja2
 from jinja2 import Template, BaseLoader, Environment
@@ -41,29 +42,24 @@ def findFiles(indir):
 
     return validFileList
 
-#verify file is markdown and extract first heading to use as title
+#verify file is markdown and split file name to Parent and Child topics
 def parseFiles(validFileList, indir):
 
     assert validFileList, "No valid markdown files to parse"
     assert os.path.isdir(indir), "Provided directory path is not a directory"
 
     parsedFileList = dict()
-    tocregex = re.compile("(?P<parent>(?<=\[)[\w-]+?(?=\]))\]-{1}(?P<child>[\w-].*(?=\.md))")
-    mdregex = re.compile("^#{1,2}\s+(?P<title>(\w+( \w+))+)(\s+)?(#{1,2})?$")
+    tocTree = defaultdict(set)
+    tocRegex = re.compile("(?P<parent>(?<=\[)[\w-]+?(?=\]))\]-{1}(?P<child>[\w-].*(?=\.md))")
 ##FIXME add Try catch or finaly
     for file in sorted(validFileList):
         filepath = os.path.join(indir,file)
-        fp = open(filepath)
-        for line in fp:
-            log.info("checking file %s and line %s", file, line)
-            result = mdregex.match(line)
-            if result:
-                title = result.group('title')
-                log.info("Using title string %s", title)
-                parsedFileList[file] = title
-                break
-        fp.close()
-    return parsedFileList
+        tocResult = tocRegex.match(file)
+        if tocResult:
+            tocParent = tocResult.group('parent')
+            tocChild = tocResult.group('child')
+            tocTree.append(tocParent, tocChild, file)
+    return tocTree
 
 #generte  mkdocs.yml using jinja template and dict of markdown files
 def generateSite(parsedFileList):
@@ -86,9 +82,11 @@ markdown_extensions:
       permalink: True
 
 pages:
-  - Introduction: index.md
-  - Knowledge Base:
-{% for file, title in kbdict.iteritems() %}    - '{{ title }}' : '{{ file }}'
+  - Home: Home.md
+
+{% for tocParent, tocChild in kbdict.iteritems() %}    - '{{ tocParent }}' :
+    {% for file, title in tocChild.iteritems() %}    - '{{ title }}' : '{{ file }}'
+    {% endfor %}
 {% endfor %}
 
 """
