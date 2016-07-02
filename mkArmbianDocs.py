@@ -60,9 +60,12 @@ def parseFiles(validFileList, indir):
             tocParent = tocResult.group('parent')
             tocChild = tocResult.group('child')
             tocPair = (tocChild, file)
-            tocTree.default_factory
+            
+            tocTree = defaultdict(set)
             tocTree[tocParent].add(tocPair)
             log.info("added %s %s %s", tocParent, tocChild, file)
+            
+            
     return tocTree
 
 #generte  mkdocs.yml using jinja template and dict of markdown files
@@ -88,8 +91,8 @@ markdown_extensions:
 pages:
   - Home: Home.md
 
-{% for tocParent, tocChild in kbdict.iteritems() %}    - '{{ tocParent }}' :
-    {% for file, title in tocChild.iteritems() %}    - '{{ title }}' : '{{ file }}'
+{% for tocParent in kbdict.iteritems() %}    - '{{ tocParent }}' :
+    {% for file, title in kbdict[tocParent] %}    - '{{ title }}' : '{{ file }}'
     {% endfor %}
 {% endfor %}
 
