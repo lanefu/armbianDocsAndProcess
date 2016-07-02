@@ -48,6 +48,7 @@ def parseFiles(validFileList, indir):
     assert os.path.isdir(indir), "Provided directory path is not a directory"
 
     parsedFileList = dict()
+    tocregex = re.compile("(?P<parent>(?<=\[)[\w-]+?(?=\]))\]-{1}(?P<child>[\w-].*(?=\.md))")
     mdregex = re.compile("^#{1,2}\s+(?P<title>(\w+( \w+))+)(\s+)?(#{1,2})?$")
 ##FIXME add Try catch or finaly
     for file in sorted(validFileList):
